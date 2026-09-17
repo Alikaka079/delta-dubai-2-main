@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delta Dubai — Premium Vehicle Solutions</title>
+<link rel="icon" href="/assets/delta-dubai-logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+ 
+    --maroon-950:#78011D;
+    --maroon-900:#78011D;
+    --maroon-800:#78011D;
+    --wine-600:#8a1c30;
+    --wine-500:#a72439;
+    --rose-400:#d16b7c;
+    --rose-300:#e3a1ac;
+    --gold-300:#cfa972;
+    --gold-200:#e4cda0;
+    --cream-50:#f6f0ea;
+    --cream-100:#efe6dd;
+    --ink-900:#37020F;
+    --ink-700:#37020F;
+    --ink-500:#37020F;
+    --line:rgba(255,255,255,0.14);
+ 
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope', sans-serif;
+    background:var(--cream-50);
+    color:var(--ink-900);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .serif{font-family:'Fraunces', serif;}
+  .container{
+    width:100%;
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    color:var(--rose-400);
+    font-weight:600;
+    text-transform:uppercase;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .25s ease, background .25s ease, color .25s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--wine-500),var(--wine-600));
+    color:var(--cream-50);
+    box-shadow:0 10px 24px -8px rgba(138,28,48,0.55);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-ghost{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--cream-50);
+  }
+  .btn-ghost:hover{ background:rgba(255,255,255,0.06); }
+  .btn-dark{
+    background:var(--maroon-950);
+    color:var(--cream-50);
+  }
+  .btn-dark:hover{ background:var(--maroon-900); }
+ 
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(24,5,9,0.86);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    transition:background .4s ease, box-shadow .4s ease, border-color .4s ease;
+  }
+  header::before{
+    content:'';
+    position:absolute; left:0; right:0; top:0; height:2px;
+    background:linear-gradient(90deg, transparent, var(--rose-400) 20%, var(--gold-300) 50%, var(--rose-400) 80%, transparent);
+    opacity:0; transition:opacity .5s ease;
+  }
+  header.is-scrolled{
+    background:#37020F;
+    box-shadow:0 14px 34px -18px rgba(0,0,0,0.65);
+    border-bottom-color:rgba(255,255,255,0.12);
+  }
+  header.is-scrolled::before{ opacity:1; }
+  .nav-wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:82px;
+    transition:height .35s ease;
+  }
+  header.is-scrolled .nav-wrap{ height:68px; }
+  .logo{ display:flex; align-items:center; gap:12px; }
+  .logo-mark{ width:34px; height:34px; }
+  .logo-img{ height:80px; width:auto; display:block; transition:height .35s ease, filter .3s ease; }
+  header.is-scrolled .logo-img{ height:44px; }
+  .logo:hover .logo-img{ filter:drop-shadow(0 0 14px rgba(227,161,172,0.55)); }
+  .logo-text{ color:var(--cream-50); line-height:1.05; }
+  .logo-text .l1{ font-family:'Fraunces',serif; font-size:16px; letter-spacing:0.08em; font-weight:500;}
+  .logo-text .l2{ font-size:9.5px; letter-spacing:0.28em; color:var(--rose-300); font-weight:600; }
+  nav.links{ display:flex; align-items:center; gap:6px; }
+  nav.links a{
+    color:rgba(246,240,234,0.78);
+    font-size:14px; font-weight:500;
+    position:relative;
+    padding:9px 16px;
+    border-radius:999px;
+    transition:color .3s ease, background .3s ease;
+  }
+  nav.links a::after{
+    content:'';
+    position:absolute; left:50%; bottom:4px;
+    width:0; height:2px; border-radius:2px;
+    background:linear-gradient(90deg, var(--rose-400), var(--gold-300));
+    transform:translateX(-50%);
+    transition:width .3s cubic-bezier(0.22,1,0.36,1);
+  }
+  nav.links a.active{
+    color:var(--cream-50);
+    background:rgba(255,255,255,0.08);
+  }
+  nav.links a.active::after{ width:22px; }
+  nav.links a:hover{ color:var(--cream-50); background:rgba(255,255,255,0.06); }
+  nav.links a:hover::after{ width:22px; }
+  .header-actions{ display:flex; align-items:center; gap:18px; }
+  .btn-ghost{ position:relative; }
+  .btn-ghost .wa-pulse{
+    position:absolute; top:-4px; right:-4px; width:9px; height:9px;
+    background:#25D366; border-radius:50%;
+    box-shadow:0 0 0 0 rgba(37,211,102,0.6);
+    animation:waPulse 2.2s ease-out infinite;
+    pointer-events:none;
+  }
+  @keyframes waPulse{
+    0%{ box-shadow:0 0 0 0 rgba(37,211,102,0.5); }
+    70%{ box-shadow:0 0 0 10px rgba(37,211,102,0); }
+    100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+  }
+  .icon-btn{
+    width:40px; height:40px; display:none;
+    align-items:center; justify-content:center;
+    border-radius:10px; border:1px solid var(--line); color:var(--cream-50);
+    cursor:pointer; position:relative;
+  }
+  .icon-btn svg{ transition:transform .3s ease, opacity .2s ease; }
+  .icon-btn .icon-close{ position:absolute; opacity:0; transform:rotate(-90deg) scale(0.6); }
+  .icon-btn.is-open .icon-menu{ opacity:0; transform:rotate(90deg) scale(0.6); }
+  .icon-btn.is-open .icon-close{ opacity:1; transform:rotate(0) scale(1); }
+  .mobile-nav{
+    display:none;
+    max-height:0; overflow:hidden;
+    background:rgba(16,3,6,0.98);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    transition:max-height .4s cubic-bezier(0.22,1,0.36,1);
+  }
+  .mobile-nav.is-open{ max-height:420px; }
+  .mobile-nav-inner{ padding:8px 22px 26px; display:flex; flex-direction:column; }
+  .mobile-nav a{
+    color:rgba(246,240,234,0.85);
+    font-size:15.5px; font-weight:500;
+    padding:14px 4px;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+  }
+  .mobile-nav a.active{ color:var(--rose-300); }
+  .mobile-nav a:last-child{ border-bottom:none; }
+  @media(max-width:980px){
+    nav.links{ display:none; }
+    .icon-btn{ display:flex; }
+    .mobile-nav{ display:block; }
+  }
+ 
+ 
+  /* ---------- IMAGE FALLBACK (graceful placeholder when a photo asset is missing) ---------- */
+  .ph-bg{
+    
+    position:relative;
+    background:
+      radial-gradient(120% 140% at 15% 10%, rgba(227,161,172,0.22) 0%, rgba(227,161,172,0) 45%),
+      linear-gradient(135deg, var(--wine-600) 0%, var(--maroon-900) 55%, var(--maroon-950) 100%);
+  }
+  .ph-bg::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23f6f0ea' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='0.16'%3E%3Cpath d='M28 128 L40 92 Q46 82 58 82 L142 82 Q154 82 160 92 L172 128'/%3E%3Crect x='20' y='128' width='160' height='30' rx='10'/%3E%3Ccircle cx='58' cy='158' r='14'/%3E%3Ccircle cx='142' cy='158' r='14'/%3E%3Cline x1='70' y1='82' x2='70' y2='128'/%3E%3Cline x1='130' y1='82' x2='130' y2='128'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:44% auto;
+    opacity:0.9;
+    pointer-events:none;
+  }
+  .ph-bg img{ position:relative; z-index:1; }
+  .ph-bg img.ph-hidden{ display:none; }
+ 
+ 
+  .hero{
+    position:relative;
+    background:var(--maroon-950);
+    color:var(--cream-50);
+    padding:96px 0 60px;
+    overflow:hidden;
+    min-height:640px;
+    display:flex;
+
+    align-items:center;
+  }
+  .hero-parallax{
+    width: 100%;
+    height: 100%;
+    position:absolute; top:0; right:0; bottom:0; width:56%; z-index:0;
+    perspective:1000px; 
+
+  }
+  
+  .hero-art{
+    position:absolute; inset:0;
+    transform:scale(1.12) translate3d(var(--hx,0), var(--hy,0), 0);
+    transition:transform .25s cubic-bezier(0.22,1,0.36,1);
+    will-change:transform;
+    overflow:hidden;
+
+  }
+  .hero-slide{
+    position:absolute; inset:0;
+    opacity:0;
+    transform:scale(1.045);
+    transition:opacity 1s ease, transform 6s cubic-bezier(0.22,1,0.36,1);
+    will-change:opacity, transform;
+    pointer-events:none;
+    cursor: pointer;
+
+  }
+  .hero-slide.active{
+    opacity:1;
+    transform:scale(1);
+  }
+  .hero-slide img{
+    width:100%; height:100%; object-fit:cover; object-position: 30%;
+    display:block;
+  }
+  .hero-slider-dots{
+    position:absolute;
+    left:50%; bottom:28px; z-index:4;
+    transform:translateX(-50%);
+    display:flex; align-items:center; gap:9px;
+  }
+  .hero-slider-dot{
+    width:8px; height:8px; border:0; padding:0;
+    border-radius:50%; background:rgba(246,240,234,.38);
+    cursor:pointer; transition:width .3s ease, background .3s ease, transform .3s ease;
+  }
+  .hero-slider-dot.active{
+    width:28px; border-radius:999px;
+    background:var(--gold-300);
+  }
+  .hero-slider-dot:hover{ transform:scale(1.15); }
+  .hero-art::before{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, var(--maroon-950) 0%, rgba(24,5,9,0.55) 22%, rgba(24,5,9,0) 55%);
+  }
+  .hero-art::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(24,5,9,0.55) 0%, rgba(24,5,9,0) 30%);
+  }
+  .hero-glow{
+    position:absolute; border-radius:50%;
+    filter:blur(40px);
+    pointer-events:none;
+    transition:transform .2s ease-out;
+    will-change:transform;
+  }
+  .hero-glow-1{
+    width:220px; height:220px; top:12%; right:22%;
+    background:rgba(227,161,172,0.35);
+    transform:translate3d(var(--gx1,0), var(--gy1,0), 0);
+  }
+  .hero-glow-2{
+    width:160px; height:160px; bottom:14%; right:8%;
+    background:rgba(207,169,114,0.28);
+    transform:translate3d(var(--gx2,0), var(--gy2,0), 0);
+  }
+  .hero-particles{ position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+  .hero-particles span{
+    position:absolute;
+    width:3px; height:3px; border-radius:50%;
+    background:rgba(246,240,234,0.75);
+    box-shadow:0 0 6px 1px rgba(246,240,234,0.5);
+    animation:floatParticle linear infinite;
+  }
+  @keyframes floatParticle{
+    0%{ transform:translateY(0) translateX(0); opacity:0; }
+    10%{ opacity:1; }
+    90%{ opacity:1; }
+    100%{ transform:translateY(-120px) translateX(14px); opacity:0; }
+  }
+  .hero-inner{
+    position:relative; z-index:1;
+    max-width:520px;
+    transform:translate3d(var(--tx,0), var(--ty,0), 0);
+    transition:transform .3s cubic-bezier(0.22,1,0.36,1);
+    will-change:transform;
+  }
+  .hero h1{
+    font-size:clamp(40px,5.6vw,64px);
+    font-weight:500;
+    line-height:1.06;
+    letter-spacing:-0.01em;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--rose-300);
+  }
+  .hero p.lead{
+    max-width:440px;
+    color:rgba(246,240,234,0.72);
+    font-size:16px;
+    margin-bottom:34px;
+  }
+  .hero-cta{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+  .play-inline{ display:flex; align-items:center; gap:12px; color:var(--cream-50); font-size:14px; font-weight:600;}
+  .play-dot{
+    width:44px; height:44px; border-radius:50%;
+    border:1px solid rgba(255,255,255,0.35);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .scroll-hint{
+    display:flex; align-items:center; gap:10px;
+    margin-top:70px;
+    color:rgba(246,240,234,0.55);
+    font-size:12.5px; letter-spacing:0.06em;
+  }
+  .scroll-hint .dot{
+    width:26px; height:26px; border-radius:50%;
+    border:1px solid rgba(255,255,255,0.3);
+    display:flex; align-items:center; justify-content:center;
+  }
+  /* ---------- SERVICES ---------- */
+  .services{ padding:110px 0 100px; background:var(--cream-50); }
+  .services-head{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:40px; align-items:end; margin-bottom:56px;
+  }
+  .services-head h2{
+    font-size:clamp(30px,3.6vw,42px);
+    font-weight:500; line-height:1.15; margin-top:10px;
+  }
+  .services-head h2 em{ font-style:italic; color:var(--wine-600); font-weight:400; }
+  .services-head p{ color:var(--ink-500); font-size:15.5px; max-width:420px; }
+  .card-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .service-card{
+    background:#fff;
+    border:1px solid rgba(36,22,18,0.08);
+    border-radius:4px;
+    overflow:hidden;
+    position:relative;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .service-card:hover{ box-shadow:0 24px 40px -20px rgba(36,22,18,0.25); }
+  .tilt-card{
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+  .card-glare{
+    position:absolute; inset:0; z-index:2;
+    pointer-events:none;
+    opacity:0;
+    background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.35), rgba(255,255,255,0) 55%);
+    transition:opacity .35s ease;
+  }
+  .tilt-card:hover .card-glare{ opacity:1; }
+  .service-thumb{ height:220px; background:var(--maroon-950); }
+  .service-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .service-body{ padding:26px 26px 30px; }
+  .service-num{ font-size:12px; color:var(--ink-500); letter-spacing:0.08em; font-weight:600; }
+  .service-body h3{ font-family:'Fraunces',serif; font-size:21px; font-weight:500; color:var(--maroon-900); margin:8px 0 8px; }
+  .service-body p{ font-size:14px; color:var(--ink-500); margin-bottom:16px; }
+  .service-link{ font-size:13.5px; font-weight:700; color:var(--wine-600); display:inline-flex; align-items:center; gap:6px; }
+ 
+  /* ---------- ABOUT ---------- */
+  .about{ background:var(--cream-50); }
+  .about-grid{
+    display:grid; grid-template-columns:0.95fr 1.05fr 0.55fr;
+    min-height:560px;
+  }
+  .about-img{ position:relative; overflow:hidden; background:var(--maroon-950); }
+  .about-img img{ width:100%; height:100%; object-fit:cover; object-position:22% center; }
+  .about-text{ padding:74px 56px; display:flex; flex-direction:column; justify-content:center; }
+  .about-text h2{ font-size:clamp(28px,3.2vw,38px); font-weight:500; line-height:1.18; margin:14px 0 18px; color:var(--maroon-900); }
+  .about-text h2 em{ font-style:italic; font-weight:400; color:var(--wine-600); }
+  .about-text p{ color:var(--ink-500); font-size:15px; max-width:420px; margin-bottom:26px; }
+  .learn-more{ display:inline-flex; align-items:center; gap:14px; font-weight:700; font-size:14px; color:var(--maroon-900); }
+  .learn-more .stroke{ width:34px; height:1px; background:var(--wine-600); }
+  .about-feats{
+    background:var(--maroon-950); padding:56px 32px;
+    display:flex; flex-direction:column; gap:34px; justify-content:center;
+  }
+  .feat-item{ display:flex; align-items:center; gap:14px; }
+  .feat-item .ic{
+    width:44px; height:44px; border-radius:50%;
+    border:1px solid rgba(207,169,114,0.4);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .feat-item span{ color:var(--cream-100); font-size:13.5px; line-height:1.35; font-weight:500; }
+ 
+  /* ---------- STATS BAR ---------- */
+  .stats{
+    background:linear-gradient(120deg,var(--maroon-900),var(--maroon-950));
+    padding:56px 0;
+    color:var(--cream-50);
+  }
+  .stats-grid{ display:grid; grid-template-columns:1fr 1fr 1fr 1.2fr; align-items:center; gap:20px; }
+  .stat{ padding:0 30px; border-left:1px solid rgba(255,255,255,0.14); }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat b{ font-family:'Fraunces',serif; font-size:clamp(32px,3.4vw,44px); font-weight:500; color:var(--gold-200); display:block; }
+  .stat span{ font-size:13px; color:rgba(246,240,234,0.68); }
+  .stat-video video{ width:100%; height:100%; object-fit:cover; display:block; background:#2c0a11; }
+  .stat-video{
+    position:relative; border-radius:6px; overflow:hidden; height:195px;
+    border:1px solid rgba(255,255,255,0.18);
+    cursor:pointer;
+  }
+  .stat-video svg{ width:100%; height:100%; }
+  .stat-video .play{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    transition:opacity .25s ease;
+    background:rgba(24,5,9,0.15);
+  }
+  .stat-video.playing .play{ opacity:0; }
+  .stat-video.playing:hover .play{ opacity:1; }
+  .stat-video .play .ring{
+    width:52px; height:52px; border-radius:50%; background:rgba(24,5,9,0.55);
+    border:1px solid rgba(255,255,255,0.6);
+    display:flex; align-items:center; justify-content:center;
+  }
+ 
+  /* ---------- GALLERY ---------- */
+  .gallery{ padding:100px 0; background:var(--cream-50); }
+  .gallery-head{ display:flex; justify-content:space-between; align-items:end; margin-bottom:42px; flex-wrap:wrap; gap:20px; }
+  .gallery-head h2{ font-size:clamp(28px,3.4vw,40px); font-weight:500; margin-top:10px; }
+  .gallery-head h2 em{ font-style:italic; color:var(--wine-600); font-weight:400; }
+  .gallery-link{ font-size:13.5px; font-weight:700; color:var(--wine-600); display:flex; align-items:center; gap:8px; }
+  .gallery-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .gallery-item{ position:relative; border-radius:4px; overflow:hidden; height:300px; background:var(--maroon-950); cursor:pointer; }
+  .gallery-item video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .gallery-item .gallery-play{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:rgba(24,5,9,0.28);
+    transition:background .3s ease;
+  }
+  .gallery-item:hover .gallery-play{ background:rgba(24,5,9,0.42); }
+  .gallery-item .gallery-play .ring{
+    width:58px; height:58px; border-radius:50%;
+    background:rgba(24,5,9,0.55);
+    border:1px solid rgba(255,255,255,0.65);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .3s ease, background .3s ease;
+  }
+  .gallery-item:hover .gallery-play .ring{ transform:scale(1.08); background:rgba(24,5,9,0.75); }
+  .gallery-nav{ display:flex; gap:10px; margin-top:28px; justify-content:flex-end; }
+  .gallery-nav button{
+    width:38px; height:38px; border-radius:50%; border:1px solid rgba(36,22,18,0.2);
+    background:transparent; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--ink-900);
+  }
+ 
+  /* ---------- VIDEO LIGHTBOX ---------- */
+  .video-lightbox{
+    position:fixed; inset:0; z-index:999;
+    background:rgba(10,2,4,0.94);
+    display:none; align-items:center; justify-content:center;
+    padding:60px 24px;
+  }
+  .video-lightbox.is-open{ display:flex; }
+  .video-lightbox-inner{ position:relative; width:100%; max-width:980px; }
+  .video-lightbox video{
+    width:100%; max-height:80vh; display:block;
+    border-radius:8px; background:#000;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.7);
+  }
+  .video-lightbox-close{
+    position:absolute; top:-48px; right:0;
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .video-lightbox-close:hover{ background:rgba(255,255,255,0.2); }
+ 
+  /* ---------- CTA ---------- */
+  .cta{ background: url(./assets/gImage\ Sep\ 9\,\ 2026\,\ 10_50_23\ AM.webp) center/cover, no-repeat var(--maroon-950); color:var(--cream-50); padding:78px 0; }
+  .cta-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center; }
+  .cta .eyebrow{ color:var(--gold-300); }
+  .cta h2{ font-size:clamp(28px,3.6vw,40px); font-style:italic; font-weight:400; margin:12px 0 16px; }
+  .cta p{ color:rgba(246,240,234,0.7); max-width:440px; margin-bottom:26px; font-size:15px; }
+  .contact-list{ display:flex; flex-direction:column; gap:16px; }
+  .contact-list li{ display:flex; align-items:center; gap:14px; font-size:14.5px; color:#ffffff; }
+  .contact-list .ic{ width:20px; height:20px; flex-shrink:0; color:#e8bc7e; }
+ 
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--cream-100); padding:70px 0 26px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1fr; gap:40px; margin-bottom:56px; }
+  .footer-brand .logo-text .l1{ color:var(--maroon-900); }
+  .footer-brand .logo-text .l2{ color:var(--wine-600); }
+  .footer-brand p{ color:var(--ink-500); font-size:13.5px; margin:16px 0 20px; max-width:230px; }
+  .footer-brand-logos{ display:flex; align-items:center; gap:40px; flex-wrap:nowrap; }
+  .footer-brand-logos .logo-img{ height:70px; }
+  .footer-branch{ display:flex; flex-direction:column; gap:6px; }
+  .footer-branch-tag{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--wine-600); font-weight:700; }
+  .footer-branch-link{ font-size:13px; font-weight:700; color:var(--ink-900); display:inline-flex; align-items:center; gap:6px; }
+  .footer-branch-link:hover{ color:var(--wine-600); }
+  .socials{ display:flex; gap:12px; }
+  .socials a{
+    width:34px; height:34px; border-radius:50%; border:1px solid rgba(36,22,18,0.2);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-900);
+  }
+  footer h4{ font-size:13px; letter-spacing:0.04em; margin-bottom:18px; color:var(--ink-900); font-weight:700; }
+  footer ul{ display:flex; flex-direction:column; gap:11px; }
+  footer ul a{ font-size:13.5px; color:var(--ink-500); }
+  footer ul a:hover{ color:var(--wine-600); }
+  .newsletter p{ font-size:13.5px; color:var(--ink-500); margin-bottom:16px; }
+  .nl-form{ display:flex; border-bottom:1px solid rgba(36,22,18,0.3); padding-bottom:10px; }
+  .nl-form input{ border:none; background:transparent; outline:none; font-size:13.5px; flex:1; font-family:inherit; color:var(--ink-900); }
+  .nl-form button{
+    width:34px; height:34px; border-radius:50%; background:var(--wine-600); border:none;
+    display:flex; align-items:center; justify-content:center; color:#fff; cursor:pointer; flex-shrink:0;
+  }
+  .footer-bottom{
+    border-top:1px solid rgba(36,22,18,0.14); padding-top:22px;
+    display:flex; justify-content:space-between; font-size:12.5px; color:var(--ink-500); flex-wrap:wrap; gap:10px;
+  }
+  .footer-bottom a{ margin-left:22px; }
+ 
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:980px){
+    .hero{ min-height:0; padding-top:64px; display:block; }
+    .hero-parallax{ position:relative; width:100%; height:280px; margin-bottom:34px; perspective:none; }
+    .hero-art{ transform:none !important; }
+    .hero-art::before{ background:linear-gradient(180deg, rgba(24,5,9,0.15) 0%, var(--maroon-950) 96%); }
+    .hero-art::after{ display:none; }
+    .hero-glow, .hero-particles{ display:none; }
+    .hero-inner{ max-width:100%; transform:none !important; }
+    .services-head{ grid-template-columns:1fr; }
+    .card-row{ grid-template-columns:1fr; }
+    .about-grid{ grid-template-columns:1fr; }
+    .about-img{ height:280px; }
+    .stats-grid{ grid-template-columns:1fr 1fr; }
+    .stat{ border-left:none; padding-left:0; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.14); }
+    .gallery-row{ grid-template-columns:1fr; }
+    .cta-grid{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:560px){
+    .container{ padding:0 22px; }
+    .footer-grid{ grid-template-columns:1fr; }
+    .footer-bottom{ flex-direction:column; }
+  }
+  html{ scroll-behavior:smooth; }
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    will-change:opacity, transform;
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- ================= HEADER ================= -->
+<header id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="#" class="logo">
+      <img class="logo-img" src="./assets/delta-dubai-logo.webp" alt="Delta Dubai">
+    </a>
+    <nav class="links">
+      <a href="#" class="active">Home</a>
+      <a href="#services">Glass Trailer</a>
+      <a href="#services">Car Rental</a>
+      <a href="#services">Chauffeur</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://wa.me/971582658210" class="btn btn-ghost">
+        <span class="wa-pulse"></span>
+   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-2.73 0 1225.016 1225.016"><path fill="#E0E0E0" d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z"/><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084"><stop offset="0" stop-color="#20b038"/><stop offset="1" stop-color="#60d66a"/></linearGradient><path fill="url(#a)" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"/><image overflow="visible" opacity=".08" width="682" height="639" xlink:href="FCC0802E2AF8A915.png" transform="translate(270.984 291.372)"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"/><path fill="#FFF" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"/></svg>
+
+        WhatsApp
+      </a>
+      <div class="icon-btn" id="mobileMenuBtn" aria-label="Toggle menu" role="button" tabindex="0">
+        <svg class="icon-menu" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-inner">
+      <a href="#" class="active">Home</a>
+      <a href="#services">Glass Trailer</a>
+      <a href="#services">Car Rental</a>
+      <a href="#services">Chauffeur</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+ 
+<!-- ================= HERO ================= -->
+<section class="hero" id="heroSection">
+  <div class="hero-parallax" id="heroParallax">
+    <div class="hero-art ph-bg" id="heroArt">
+      <div class="hero-slide active">
+        <img src="assets/hero-1.webp" alt="Delta Dubai premium vehicle transport" onerror="this.parentElement.classList.add('ph-hidden')">
+      </div>
+      <div class="hero-slide">
+        <img src="./assets/hero-2.webp" alt="Delta Dubai luxury vehicle delivery" onerror="this.parentElement.classList.add('ph-hidden')">
+      </div>
+      <div class="hero-slide">
+        <img src="./assets/hero-3.webp" alt="Delta Dubai enclosed glass trailer service" onerror="this.parentElement.classList.add('ph-hidden')">
+      </div>
+      <div class="hero-slide">
+        <img src="assets/hero-4.webp" alt="Delta Dubai chauffeur and luxury mobility service" onerror="this.parentElement.classList.add('ph-hidden')">
+      </div>
+    </div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner" id="heroInner">
+      <p class="eyebrow">Premium Vehicle Solutions</p>
+      <h1>Your car.<br>Delivered<br><em>in style.</em></h1>
+      <p class="lead">Delta Dubai brings together enclosed glass-trailer transport, a curated rental fleet and professional chauffeurs — one team, three ways to move.</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-primary">
+          Explore Our Services
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+       
+        <a href="#Gallery" class="play-inline">
+          <span class="play-dot">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          Watch Video
+        </a>
+      </div>
+      <a href="#scrollDown">
+      <div class="scroll-hint">
+        <span class="dot">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+       
+        </span>
+        Scroll Down
+      </div>
+    </a>
+    </div>
+    <div class="hero-slider-dots" id="heroSliderDots" aria-label="Hero slider navigation">
+      <button class="hero-slider-dot active" type="button" aria-label="Show slide 1"></button>
+      <button class="hero-slider-dot" type="button" aria-label="Show slide 2"></button>
+      <button class="hero-slider-dot" type="button" aria-label="Show slide 3"></button>
+      <button class="hero-slider-dot" type="button" aria-label="Show slide 4"></button>
+    </div>
+  </div>
+  </div>
+</section>
+ 
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div>
+        <p class="eyebrow">Our Services</p>
+        <h2>Three services.<br><em>One standard.</em></h2>
+      </div>
+      <p>From enclosed transport to a hand-picked rental fleet and professional chauffeurs, Delta Dubai handles the vehicle so you can focus on the journey.</p>
+    </div>
+ 
+    <div class="card-row">
+      <!-- card 1 -->
+      <div class="service-card tilt-card">
+        <div class="card-glare"></div>
+        <div class="service-thumb ph-bg">
+          <img src="./assets/car.webp" alt="Glass Trailer Services" onerror="this.classList.add('ph-hidden')">
+        </div>
+        <div class="service-body">
+          <p class="service-num">01</p>
+          <h3>Glass Trailer Services</h3>
+          <p>Enclosed, climate-aware transport with full visibility so your vehicle never leaves your sight.</p>
+          <a href="#" class="service-link">Explore Service
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+ 
+      <!-- card 2 -->
+      <div class="service-card tilt-card">
+        <div class="card-glare"></div>
+        <div class="service-thumb ph-bg">
+          <img src="assets/service-car-rental.webp" alt="Car Rental" onerror="this.classList.add('ph-hidden')">
+        </div>
+        <div class="service-body">
+          <p class="service-num">02</p>
+          <h3>Car Rental</h3>
+          <p>A curated fleet of sedans and SUVs, ready for the day, the weekend or the whole stay.</p>
+          <a href="#" class="service-link">View Fleet
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+ 
+      <!-- card 3 -->
+      <div class="service-card tilt-card">
+        <div class="card-glare"></div>
+        <div class="service-thumb ph-bg">
+          <img src="assets/service-chauffeur.webp" alt="VIP Chauffeur Services" onerror="this.classList.add('ph-hidden')">
+        </div>
+        <div class="service-body">
+          <p class="service-num">03</p>
+          <h3>VIP Chauffeur Services</h3>
+          <p>Licensed, discreet drivers for airport runs, meetings, and evenings out.</p>
+          <a href="#" class="service-link">Book Now
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img ph-bg">
+      <img src="assets/about-taillight.webp" alt="Close-up of a luxury car's illuminated taillight" onerror="this.classList.add('ph-hidden')">
+    </div>
+    <div class="about-text">
+      <p class="eyebrow" style="color:var(--wine-600);">About Delta</p>
+      <h2>Redefining vehicle<br>movement <em>in Dubai.</em></h2>
+      <p>Delta Dubai is a premium mobility partner covering enclosed transport, rental and chauffeur driving. We built the company around one idea: moving a car should feel as considered as owning one.</p>
+      <a href="#" class="learn-more"><span class="stroke"></span> Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="about-feats">
+      <div class="feat-item">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cfa972" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5z"/></svg></span>
+        <span>Safe &amp; secure<br>transportation</span>
+      </div>
+      <div class="feat-item">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cfa972" stroke-width="1.6"><path d="M12 2l2.4 6.9L22 9l-6 5 1.9 7.9L12 18l-5.9 3.9L8 14 2 9l7.6-.1z"/></svg></span>
+        <span>Luxury<br>fleet</span>
+      </div>
+      <div class="feat-item">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cfa972" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        <span>24/7<br>service</span>
+      </div>
+      <div class="feat-item">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cfa972" stroke-width="1.6"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg></span>
+        <span>UAE-wide<br>coverage</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><b>100+</b><span>Vehicles Delivered</span></div>
+    <div class="stat"><b>24/7</b><span>Service Availability</span></div>
+    <div class="stat"><b>100%</b><span>Client Satisfaction</span></div>
+    <div class="stat-video" id="statVideo">
+      <video id="statVideoEl" src="assets/stats-video.mp4" muted loop playsinline autoplay preload="metadata"></video>
+      <div class="play" id="statVideoPlay">
+        <span class="ring">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f6f0ea"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="Gallery">
+  <div class="container">
+    <div class="gallery-head">
+      <div>
+        <p class="eyebrow" style="color:var(--wine-600);">Gallery &amp;  SELECTED WORK</p>
+        <h2>Delivered with <em>every detail</em></h2>
+      </div>
+      <!-- <a href="#" class="gallery-link">View All Gallery
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a> -->
+    </div>
+ 
+    <div class="gallery-row">
+      <div class="gallery-item" data-video="assets/gallery-video-1.mp4" tabindex="0" role="button" aria-label="Play video 1">
+        <video muted playsinline preload="metadata"  poster="./assets/poster.webp">
+          <source src="./assets/gallery-video-1.mp4"  type="video/mp4">
+        </video>
+        <div class="gallery-play">
+          <span class="ring">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f6f0ea"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="gallery-item" data-video="assets/gallery-video-2.mp4" tabindex="0" role="button" aria-label="Play video 2">
+        <video muted playsinline preload="metadata" poster="./assets/poster.webp">
+          <source src="assets/gallery-video-2.mp4#t=0.5" type="video/mp4">
+        </video>
+        <div class="gallery-play">
+          <span class="ring">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f6f0ea"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="gallery-item" data-video="assets/gallery-video-3.mp4" tabindex="0" role="button" aria-label="Play video 3">
+        <video muted playsinline preload="metadata" poster="./assets/poster.webp">
+          <source src="assets/gallery-video-3.mp4#t=0.5" type="video/mp4">
+        </video>
+        <div class="gallery-play">
+          <span class="ring">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f6f0ea"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="gallery-nav">
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= VIDEO LIGHTBOX ================= -->
+<div class="video-lightbox" id="videoLightbox">
+  <div class="video-lightbox-inner">
+    <button class="video-lightbox-close" id="videoLightboxClose" aria-label="Close video">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <video id="videoLightboxPlayer" controls playsinline></video>
+  </div>
+</div>
+ 
+<!-- ================= CTA ================= -->
+<section class="cta" id="contact">
+  <div class="container cta-grid">
+    <div>
+      <p class="eyebrow">Ready When You Are</p>
+      <h2>Let's get you<br>on the road.</h2>
+      <p>Whether it's an enclosed transport, a rental for the week, or a chauffeur for tonight — our team is on call around the clock.</p>
+      <a href="#" class="btn btn-dark">Contact Us
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <ul class="contact-list">
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></span>+971 58 265 8210</li>
+ <li> <span class="ic">     <a href="https://wa.me/971582658210"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" version="1.1" width="20px" height="20px" viewBox="0 0 30.667 30.667" xml:space="preserve"><g><path d="M30.667,14.939c0,8.25-6.74,14.938-15.056,14.938c-2.639,0-5.118-0.675-7.276-1.857L0,30.667l2.717-8.017   c-1.37-2.25-2.159-4.892-2.159-7.712C0.559,6.688,7.297,0,15.613,0C23.928,0.002,30.667,6.689,30.667,14.939z M15.61,2.382   c-6.979,0-12.656,5.634-12.656,12.56c0,2.748,0.896,5.292,2.411,7.362l-1.58,4.663l4.862-1.545c2,1.312,4.393,2.076,6.963,2.076   c6.979,0,12.658-5.633,12.658-12.559C28.27,8.016,22.59,2.382,15.61,2.382z M23.214,18.38c-0.094-0.151-0.34-0.243-0.708-0.427   c-0.367-0.184-2.184-1.069-2.521-1.189c-0.34-0.123-0.586-0.185-0.832,0.182c-0.243,0.367-0.951,1.191-1.168,1.437   c-0.215,0.245-0.43,0.276-0.799,0.095c-0.369-0.186-1.559-0.57-2.969-1.817c-1.097-0.972-1.838-2.169-2.052-2.536   c-0.217-0.366-0.022-0.564,0.161-0.746c0.165-0.165,0.369-0.428,0.554-0.643c0.185-0.213,0.246-0.364,0.369-0.609   c0.121-0.245,0.06-0.458-0.031-0.643c-0.092-0.184-0.829-1.984-1.138-2.717c-0.307-0.732-0.614-0.611-0.83-0.611   c-0.215,0-0.461-0.03-0.707-0.03S9.897,8.215,9.56,8.582s-1.291,1.252-1.291,3.054c0,1.804,1.321,3.543,1.506,3.787   c0.186,0.243,2.554,4.062,6.305,5.528c3.753,1.465,3.753,0.976,4.429,0.914c0.678-0.062,2.184-0.885,2.49-1.739   C23.307,19.268,23.307,18.533,23.214,18.38z"/></g></svg></a> </span>WhatsApp Chat</li> </a>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></span>info@deltadubai.ae</li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg></span>Dubai, UAE</li>
+    </ul>
+  </div>
+</section>
+ 
+<!-- ================= FOOTER ================= -->
+<footer id="scrollDown">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logos">
+          <a href="#" class="logo">
+            <img class="logo-img" src="./assets/delta-dubai-logo-2.webp" alt="Delta Dubai" style="height:150px;">
+          </a>
+          <div class="footer-branch">
+            <a href="https://deltauktransport.com" target="_blank" rel="noopener" class="logo">
+              <img class="logo-img" src="assets/delta-uk-logo.webp" alt="Delta UK">
+            </a>
+            <span class="footer-branch-tag">We operate worldwide</span>
+            <a href="https://www.delta-uk-website.com" target="_blank" rel="noopener" class="footer-branch-link">
+              Visit Delta UK
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <p>Premium vehicle services for a smoother, more luxurious journey.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Glass Trailer Services</a></li>
+          <li><a href="#services">Car Rental</a></li>
+          <li><a href="#services">VIP Chauffeur</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Glass Trailer Services</a></li>
+          <li><a href="#">Car Rental</a></li>
+          <li><a href="#">VIP Chauffeur</a></li>
+        </ul>
+      </div>
+      <div class="newsletter">
+        <h4>Newsletter</h4>
+        <p>Stay updated with our latest services and offers.</p>
+        <div class="nl-form">
+          <input type="email" placeholder="Your email address">
+          <button aria-label="Subscribe">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Delta Dubai. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></span>
+    </div>
+  </div>
+</footer>
+ 
+</body>
+<script>
+  (function(){
+    // Hero image slider: auto-advance every 5 seconds with a soft fade + zoom.
+    var hero = document.getElementById('heroSection');
+    var art = document.getElementById('heroArt');
+    var dotsWrap = document.getElementById('heroSliderDots');
+    if(!hero || !art || !dotsWrap) return;
+ 
+    var slides = Array.prototype.slice.call(art.querySelectorAll('.hero-slide'));
+    var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.hero-slider-dot'));
+    if(slides.length !== dots.length || slides.length < 2) return;
+ 
+    var current = 0;
+    var timer = null;
+    var delay = 5000;
+ 
+    function showSlide(index){
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function(slide, i){
+        slide.classList.toggle('active', i === current);
+      });
+      dots.forEach(function(dot, i){
+        var active = i === current;
+        dot.classList.toggle('active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+    }
+ 
+    function start(){
+      stop();
+      timer = setInterval(function(){ showSlide(current + 1); }, delay);
+    }
+ 
+    function stop(){
+      if(timer){
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+ 
+    dots.forEach(function(dot, i){
+      dot.addEventListener('click', function(e){
+        e.stopPropagation();
+        showSlide(i);
+        start();
+      });
+    });
+ 
+    // Click navigation:
+    // Left half of the hero image -> previous slide
+    // Right half of the hero image -> next slide
+    art.addEventListener('click', function(e){
+      var rect = art.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+ 
+      if(x >= rect.width / 2){
+        showSlide(current + 1);
+      } else {
+        showSlide(current - 1);
+      }
+ 
+      start();
+    });
+ 
+    // Make the slider feel clickable.
+    art.style.cursor = 'ew-resize';
+ 
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', start);
+ 
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden) stop();
+      else start();
+    });
+ 
+    showSlide(0);
+    start();
+  })();
+</script>
+<script>
+  
+</script>
+<script>
+  (function(){
+    var wrap = document.getElementById('statVideo');
+    var vid = document.getElementById('statVideoEl');
+    if(!wrap || !vid) return;
+    wrap.addEventListener('click', function(){
+      if(vid.paused){
+        vid.muted = false;
+        vid.play();
+        wrap.classList.add('playing');
+      } else {
+        vid.pause();
+        wrap.classList.remove('playing');
+      }
+    });
+  })();
+</script>
+<script>
+  (function(){
+    // Gallery videos: click a thumbnail to open a large, clear lightbox player.
+    var items = document.querySelectorAll('.gallery-item[data-video]');
+    var lightbox = document.getElementById('videoLightbox');
+    var player = document.getElementById('videoLightboxPlayer');
+    var closeBtn = document.getElementById('videoLightboxClose');
+    if(!items.length || !lightbox || !player || !closeBtn) return;
+ 
+    function openVideo(src){
+      player.src = src;
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      player.play().catch(function(){ /* autoplay may be blocked; controls remain available */ });
+    }
+ 
+    function closeVideo(){
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+      player.pause();
+      player.removeAttribute('src');
+      player.load();
+    }
+ 
+    items.forEach(function(item){
+      var src = item.getAttribute('data-video');
+      item.addEventListener('click', function(){ openVideo(src); });
+      item.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          openVideo(src);
+        }
+      });
+    });
+ 
+    closeBtn.addEventListener('click', closeVideo);
+    lightbox.addEventListener('click', function(e){
+      if(e.target === lightbox) closeVideo();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && lightbox.classList.contains('is-open')) closeVideo();
+    });
+  })();
+</script>
+<script>
+  (function(){
+    // Fade in images (and gallery/service cards) smoothly as they scroll into view.
+    var targets = document.querySelectorAll(
+      "section img:not(.logo-img), .service-card, .gallery-item, .stat, .about-img"
+    );
+ 
+    if(!("IntersectionObserver" in window)){
+      targets.forEach(function(el){ el.classList.add("reveal", "in-view"); });
+      return;
+    }
+ 
+    targets.forEach(function(el, i){
+      el.classList.add("reveal");
+      el.style.transitionDelay = (i % 4) * 90 + "ms";
+    });
+ 
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+ 
+    targets.forEach(function(el){ observer.observe(el); });
+  })();
+</script>
+<script>
+  (function(){
+    // Reliable smooth-scroll for in-page anchor links (works even where
+    // CSS scroll-behavior:smooth is ignored, e.g. some Safari versions),
+    // and accounts for the sticky header height so the section isn't
+    // hidden behind it.
+    var header = document.getElementById('siteHeader');
+ 
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+      var id = link.getAttribute('href').slice(1);
+      if(!id) return; // plain "#" links keep default behavior
+ 
+      var target = document.getElementById(id);
+      if(!target) return;
+ 
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var offset = header ? header.offsetHeight : 0;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset - 12;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+<script>
+  (function(){
+    var header = document.getElementById('siteHeader');
+    if(!header) return;
+    function onScroll(){
+      if(window.scrollY > 12) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive:true });
+  })();
+</script>
+<script>
+  (function(){
+    var btn = document.getElementById('mobileMenuBtn');
+    var panel = document.getElementById('mobileNav');
+    if(!btn || !panel) return;
+    function toggle(){
+      var open = panel.classList.toggle('is-open');
+      btn.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', toggle);
+    btn.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+    });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        panel.classList.remove('is-open');
+        btn.classList.remove('is-open');
+      });
+    });
+  })();
+</script>
+<script>
+  (function(){
+    // Generate a few soft floating light particles in the hero.
+    var wrap = document.getElementById('heroParticles');
+    if(!wrap) return;
+    var count = window.innerWidth < 720 ? 0 : 14;
+    for(var i=0;i<count;i++){
+      var dot = document.createElement('span');
+      var left = Math.random()*100;
+      var delay = Math.random()*10;
+      var duration = 7 + Math.random()*6;
+      var top = 20 + Math.random()*70;
+      dot.style.left = left + '%';
+      dot.style.top = top + '%';
+      dot.style.animationDelay = delay + 's';
+      dot.style.animationDuration = duration + 's';
+      dot.style.opacity = (0.4 + Math.random()*0.5).toFixed(2);
+      wrap.appendChild(dot);
+    }
+  })();
+</script>
+<script>
+  (function(){
+    // Depth-parallax hero: image, glows and text drift subtly with the cursor.
+    var section = document.getElementById('heroSection');
+    var art = document.getElementById('heroArt');
+    var inner = document.getElementById('heroInner');
+    var parallax = document.getElementById('heroParallax');
+    if(!section || !art || !inner || !parallax) return;
+    if(window.matchMedia('(max-width: 980px)').matches) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ 
+    var raf = null;
+    function handleMove(e){
+      var rect = section.getBoundingClientRect();
+      var relX = (e.clientX - rect.left) / rect.width - 0.5;   // -0.5 .. 0.5
+      var relY = (e.clientY - rect.top) / rect.height - 0.5;
+ 
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function(){
+        art.style.setProperty('--hx', (relX * -18) + 'px');
+        art.style.setProperty('--hy', (relY * -14) + 'px');
+        parallax.style.setProperty('--gx1', (relX * 34) + 'px');
+        parallax.style.setProperty('--gy1', (relY * 26) + 'px');
+        parallax.style.setProperty('--gx2', (relX * -46) + 'px');
+        parallax.style.setProperty('--gy2', (relY * -30) + 'px');
+        inner.style.setProperty('--tx', (relX * 10) + 'px');
+        inner.style.setProperty('--ty', (relY * 8) + 'px');
+      });
+    }
+    function reset(){
+      art.style.setProperty('--hx','0px'); art.style.setProperty('--hy','0px');
+      parallax.style.setProperty('--gx1','0px'); parallax.style.setProperty('--gy1','0px');
+      parallax.style.setProperty('--gx2','0px'); parallax.style.setProperty('--gy2','0px');
+      inner.style.setProperty('--tx','0px'); inner.style.setProperty('--ty','0px');
+    }
+    section.addEventListener('mousemove', handleMove);
+    section.addEventListener('mouseleave', reset);
+  })();
+</script>
+<script>
+  (function(){
+    // 3D tilt + glare on service cards.
+    var cards = document.querySelectorAll('.tilt-card');
+    if(!cards.length) return;
+    if(window.matchMedia('(pointer: coarse)').matches) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ 
+    var maxTilt = 8;
+    cards.forEach(function(card){
+      var raf = null;
+      card.addEventListener('mousemove', function(e){
+        var rect = card.getBoundingClientRect();
+        var relX = (e.clientX - rect.left) / rect.width;   // 0..1
+        var relY = (e.clientY - rect.top) / rect.height;
+ 
+        if(raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function(){
+          var rotateY = (relX - 0.5) * maxTilt * 2;
+          var rotateX = (0.5 - relY) * maxTilt * 2;
+          card.style.transform =
+            'perspective(900px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px) scale(1.015)';
+          card.style.transition = 'box-shadow .3s ease';
+          card.style.setProperty('--mx', (relX*100) + '%');
+          card.style.setProperty('--my', (relY*100) + '%');
+        });
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transition = 'transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .3s ease';
+        card.style.transform = 'perspective(900px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+      });
+    });
+  })();
+</script>
+</html>
+ 
+
+
+
+
